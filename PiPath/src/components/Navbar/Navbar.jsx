@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between p-4 font-sans">
       <div className="flex items-center">
         <NavbarLogo />
-        <div className="ml-10">
+        <div className="ml-16">
           <NavbarSearch />
         </div>
       </div>
