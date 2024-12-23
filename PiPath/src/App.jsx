@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
-import LandingPage from "./components/LandingPage/LandingPage";
+import LandingPage from "./components/Landing/LandingPage";
+import HelpPage from "./components/Help/HelpPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -11,6 +12,8 @@ function App() {
       <Navbar currentPage={currentPage} onNavigate={setCurrentPage} />
       {currentPage === "home" ? (
         <LandingPage onNavigate={setCurrentPage} />
+      ) : currentPage === "help" ? (
+        <HelpPage />
       ) : (
         <div className="flex">
           <Sidebar />

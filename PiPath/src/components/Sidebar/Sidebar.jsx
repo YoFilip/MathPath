@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Sidebar } from "flowbite-react";
-import { sections } from "../../data/sections";
+import { sections } from "../../data/topicsData";
 import SidebarSection from "./SidebarSection";
 import { motion } from "framer-motion";
 
