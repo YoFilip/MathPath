@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "node_modules/flowbite-react/lib/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {
@@ -10,14 +11,15 @@ export default {
         sans: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        text: "#504F5E",
-        contentText: "#B2B1B6",
-        // navText: "#393053",
-        navText: "#7285FC",
-        navSearchColor: "#F7F8FA",
-        activeNavItem: "#81899B",
+        logoTextColor: "#7285FC",
+        navItemTextColor: "#504F5E",
+        navSearchBgColor: "#F7F8FA",
+        inactiveTextColor: "#81899B",
+        activeTextColor: "#7285FC",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
