@@ -6,7 +6,7 @@ function NavbarLogo({ onNavigate }) {
       href="#home"
       onClick={() => onNavigate("home")}
       className="text-2xl font-bold text-logoTextColor">
-      PiPath
+      MathPath
     </a>
   );
 }

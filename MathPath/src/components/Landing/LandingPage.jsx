@@ -31,7 +31,7 @@ const LandingPage = ({ onNavigate }) => {
         animate="visible"
         transition={transition}
         className="text-7xl font-bold text-blueTextColor mt-32">
-        PiPath
+        MathPath
       </motion.h1>
 
       <motion.div
