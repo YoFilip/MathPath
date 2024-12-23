@@ -9,10 +9,10 @@ const SidebarTopics = ({ topics }) => {
         <Sidebar.Item
           key={topic.id}
           href={`#${topic.id}`}
-          className="text-gray-600 text-sm ml-5 font-medium">
-          <div className="flex items-center gap-2">
+          className="text-gray-600 text-sm ml-5 font-medium !justify-start">
+          <div className="flex items-center gap-2 w-full">
             <MdOutlinePlayLesson className="text-inactiveTextColor" size={15} />
-            {topic.title}
+            <span className="text-left">{topic.title}</span>
           </div>
         </Sidebar.Item>
       ))}

@@ -1,8 +1,11 @@
 import React from "react";
 
-function NavbarLogo() {
+function NavbarLogo({ onNavigate }) {
   return (
-    <a href="" className="text-2xl font-bold text-logoTextColor">
+    <a
+      href="#home"
+      onClick={() => onNavigate("home")}
+      className="text-2xl font-bold text-logoTextColor">
       PiPath
     </a>
   );

@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import NavbarLogo from "./NavbarLogo";
 import NavbarSearch from "./NavbarSearch";
 import NavbarItem from "./NavbarItem";
 
-const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("#home");
-
+const Navbar = ({ currentPage, onNavigate }) => {
   return (
     <nav className="flex items-center justify-between p-4 font-sans">
       <div className="flex items-center">
-        <NavbarLogo />
+        <NavbarLogo onNavigate={onNavigate} />
         <div className="ml-16">
           <NavbarSearch />
         </div>
@@ -17,21 +15,21 @@ const Navbar = () => {
       <ul className="flex gap-10">
         <NavbarItem
           href="#home"
-          isActive={activeItem === "#home"}
-          onClick={() => setActiveItem("#home")}>
-          Home
+          isActive={currentPage === "home"}
+          onClick={() => onNavigate("home")}>
+          Strona główna
         </NavbarItem>
         <NavbarItem
-          href="#topic"
-          isActive={activeItem === "#topic"}
-          onClick={() => setActiveItem("#topic")}>
-          Topics
+          href="#topics"
+          isActive={currentPage === "topics"}
+          onClick={() => onNavigate("topics")}>
+          Tematy
         </NavbarItem>
         <NavbarItem
           href="#help"
-          isActive={activeItem === "#help"}
-          onClick={() => setActiveItem("#help")}>
-          Help
+          isActive={currentPage === "help"}
+          onClick={() => onNavigate("help")}>
+          Pomoc
         </NavbarItem>
       </ul>
     </nav>

@@ -1,3 +1,5 @@
+import { blue } from '@mui/material/colors';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -16,6 +18,9 @@ export default {
         navSearchBgColor: "#F7F8FA",
         inactiveTextColor: "#81899B",
         activeTextColor: "#7285FC",
+        blueTextColor: "#7285FC",
+        blueBgColor: "#7285FC",
+
       },
     },
   },
