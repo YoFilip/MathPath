@@ -11,6 +11,28 @@ export const sections = [
         ]
     },
     {
+        id: 'sequences',
+        title: 'Ciągi',
+        topics: [
+            { id: 'seq-intro', title: 'Wprowadzenie do ciągów' },
+            { id: 'arithmetic', title: 'Ciąg arytmetyczny' },
+            { id: 'geometric', title: 'Ciąg geometryczny' },
+            { id: 'limits', title: 'Granica ciągu' },
+            { id: 'seq-practice', title: 'Zadania z ciągów' }
+        ]
+    },
+    {
+        id: 'statistics',
+        title: 'Statystyka',
+        topics: [
+            { id: 'data-analysis', title: 'Analiza danych' },
+            { id: 'measures', title: 'Miary statystyczne' },
+            { id: 'probability', title: 'Prawdopodobieństwo' },
+            { id: 'distributions', title: 'Rozkłady prawdopodobieństwa' },
+            { id: 'stats-practice', title: 'Zadania ze statystyki' }
+        ]
+    },
+    {
         id: 'trigonometry',
         title: 'Trygonometria',
         topics: [
@@ -33,17 +55,6 @@ export const sections = [
         ]
     },
     {
-        id: 'sequences',
-        title: 'Ciągi',
-        topics: [
-            { id: 'seq-intro', title: 'Wprowadzenie do ciągów' },
-            { id: 'arithmetic', title: 'Ciąg arytmetyczny' },
-            { id: 'geometric', title: 'Ciąg geometryczny' },
-            { id: 'limits', title: 'Granica ciągu' },
-            { id: 'seq-practice', title: 'Zadania z ciągów' }
-        ]
-    },
-    {
         id: 'calculus',
         title: 'Rachunek Różniczkowy',
         topics: [
@@ -54,15 +65,4 @@ export const sections = [
             { id: 'calc-practice', title: 'Zadania z rachunku różniczkowego' }
         ]
     },
-    {
-        id: 'statistics',
-        title: 'Statystyka',
-        topics: [
-            { id: 'data-analysis', title: 'Analiza danych' },
-            { id: 'measures', title: 'Miary statystyczne' },
-            { id: 'probability', title: 'Prawdopodobieństwo' },
-            { id: 'distributions', title: 'Rozkłady prawdopodobieństwa' },
-            { id: 'stats-practice', title: 'Zadania ze statystyki' }
-        ]
-    }
 ];
