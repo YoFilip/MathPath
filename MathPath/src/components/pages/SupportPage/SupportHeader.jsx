@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const HelpHeader = () => {
+const SupportHeader = () => {
   const animationVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1 },
@@ -21,3 +21,5 @@ export const HelpHeader = () => {
     </motion.div>
   );
 };
+
+export default SupportHeader;

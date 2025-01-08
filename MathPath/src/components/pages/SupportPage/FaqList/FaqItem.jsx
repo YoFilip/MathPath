@@ -2,12 +2,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
 
-export const FaqItem = ({ item, index }) => {
+const FaqItem = ({ item, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const animationVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1 },
   };
+
   return (
     <motion.div
       variants={animationVariants}
@@ -40,3 +41,5 @@ export const FaqItem = ({ item, index }) => {
     </motion.div>
   );
 };
+
+export default FaqItem;

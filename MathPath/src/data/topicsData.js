@@ -4,10 +4,6 @@ export const sections = [
         title: 'Pierwsze Kroki',
         topics: [
             { id: 'introduction', title: 'Wprowadzenie' },
-            { id: 'lesson', title: 'Lekcja' },
-            { id: 'examples', title: 'Przykłady' },
-            { id: 'applications', title: 'Zastosowania' },
-            { id: 'interactive-practice', title: 'Ćwiczenia Interaktywne' }
         ]
     },
     {

@@ -1,0 +1,138 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaBookOpen, FaLightbulb, FaTasks } from "react-icons/fa";
+import CourseNavigation from "./CourseNavigation";
+import CourseTip from "./CourseTip";
+import { InlineMath, BlockMath } from "react-katex";
+import "katex/dist/katex.min.css";
+import { useNavigate } from "react-router-dom";
+
+const TheorySection = ({ theory, tip }) => (
+  <div className="space-y-6">
+    {theory.map((section, index) => (
+      <section key={index}>
+        <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
+        <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+          {section.content}
+        </p>
+      </section>
+    ))}
+    {tip && <CourseTip content={tip} />}
+  </div>
+);
+
+const ExamplesSection = ({ examples }) => (
+  <div className="space-y-6">
+    {examples.map((example, index) => (
+      <div key={index} className="border p-4 rounded-lg bg-gray-50 ">
+        <p className="font-medium mb-2">Przykład {index + 1}:</p>
+        <p>{example.content}</p>
+        {example.solution && (
+          <div className="text-gray-600 mt-2 flex gap-1 items-baseline">
+            <span>Rozwiązanie:</span>
+            <span className="mr-1">{example.solution.text}</span>
+            <span>
+              <InlineMath math={example.solution.math} />
+            </span>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+);
+const ExercisesSection = ({ exercises }) => (
+  <div className="space-y-6">
+    {exercises.map((exercise, index) => (
+      <div key={index} className="border p-4 rounded-lg bg-gray-50 ">
+        <p className="font-medium mb-2">Ćwiczenie {index + 1}:</p>
+        <p>
+          <span>{exercise.text} </span>
+          <span className="katex-wrapper">
+            <InlineMath math={exercise.math} />
+          </span>
+        </p>
+      </div>
+    ))}
+  </div>
+);
+const CourseContent = ({ lesson }) => {
+  const [activeSection, setActiveSection] = useState("theory");
+  const navigate = useNavigate();
+
+  const contentAnimation = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.5 },
+  };
+
+  const SectionButton = ({ icon: Icon, name, title }) => (
+    <button
+      onClick={() => setActiveSection(name)}
+      className={`flex items-center gap-3 p-4 rounded-lg transition-all ${
+        activeSection === name
+          ? "bg-blueBgColor text-white"
+          : "hover:bg-gray-100"
+      }`}>
+      <Icon size={20} />
+      <span className="font-medium">{title}</span>
+    </button>
+  );
+  const hasExamples = lesson.examples && lesson.examples.length > 0;
+  const hasExercises = lesson.exercises && lesson.exercises.length > 0;
+
+  const handleNavigate = (lessonId) => {
+    navigate(`/lesson/${lessonId}`);
+  };
+
+  return (
+    <motion.div {...contentAnimation} className="flex-1 p-8 ml-8 mt-12">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="border-b pb-6 mb-8">
+          <div className="flex items-center gap-4 mb-3">
+            <h1 className="text-3xl font-bold text-blueTextColor">
+              {lesson.title}
+            </h1>
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+              {lesson.category}
+            </span>
+          </div>
+          <p className="text-gray-600">{lesson.description}</p>
+        </div>
+
+        <div className="grid auto-cols-fr grid-flow-col gap-4 mb-8">
+          <SectionButton icon={FaBookOpen} name="theory" title="Teoria" />
+          {hasExamples && (
+            <SectionButton
+              icon={FaLightbulb}
+              name="examples"
+              title="Przykłady"
+            />
+          )}
+          {hasExercises && (
+            <SectionButton icon={FaTasks} name="exercises" title="Ćwiczenia" />
+          )}
+        </div>
+
+        <div className="bg-white rounded-lg p-8 shadow-sm">
+          {activeSection === "theory" && (
+            <TheorySection theory={lesson.theory} tip={lesson.tip} />
+          )}
+          {activeSection === "examples" && hasExamples && (
+            <ExamplesSection examples={lesson.examples} />
+          )}
+          {activeSection === "exercises" && hasExercises && (
+            <ExercisesSection exercises={lesson.exercises} />
+          )}
+        </div>
+
+        <CourseNavigation
+          prevLesson={lesson.prevLesson}
+          nextLesson={lesson.nextLesson}
+          onNavigate={handleNavigate}
+        />
+      </div>
+    </motion.div>
+  );
+};
+
+export default CourseContent;

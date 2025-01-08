@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
-import { sections } from "../../data/topicsData";
+import { sections } from "../../../data/topicsData";
 
 const allTopics = sections.flatMap((section) => section.topics);
 

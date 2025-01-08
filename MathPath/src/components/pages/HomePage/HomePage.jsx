@@ -16,11 +16,11 @@ const transition = {
   ease: "easeOut",
 };
 
-const LandingPage = ({ onNavigate }) => {
+const HomePage = ({ onNavigate }) => {
   const cards = [
-    { title: "6 Działów", desc: "Kompleksowy program nauczania" },
-    { title: "30 Tematów", desc: "Szczegółowo opracowane zagadnienia" },
-    { title: "100+ Zadań", desc: "Praktyczne ćwiczenia z rozwiązaniami" },
+    { title: "X Działów", desc: "Kompleksowy program nauczania" },
+    { title: "X Tematów", desc: "Szczegółowo opracowane zagadnienia" },
+    { title: "X+ Zadań", desc: "Praktyczne ćwiczenia z rozwiązaniami" },
   ];
 
   return (
@@ -68,7 +68,7 @@ const LandingPage = ({ onNavigate }) => {
             initial="hidden"
             animate="visible"
             transition={{ ...transition, delay: 0.6 }}
-            className="p-8 bg-gray-200 bg-opacity-40 rounded-lg">
+            className="p-8 bg-blueBgColor bg-opacity-10 rounded-lg">
             <h3 className="text-xl font-bold text-gray-600 mb-2">
               {item.title}
             </h3>
@@ -80,4 +80,4 @@ const LandingPage = ({ onNavigate }) => {
   );
 };
 
-export default LandingPage;
+export default HomePage;

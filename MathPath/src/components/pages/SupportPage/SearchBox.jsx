@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { BsSearch } from "react-icons/bs";
 
-export const SearchBar = ({ searchQuery, onSearchChange }) => {
+const SearchBox = ({ searchQuery, onSearchChange }) => {
   const animationVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1 },
@@ -24,3 +24,5 @@ export const SearchBar = ({ searchQuery, onSearchChange }) => {
     </motion.div>
   );
 };
+
+export default SearchBox;

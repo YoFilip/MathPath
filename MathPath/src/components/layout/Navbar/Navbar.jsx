@@ -5,7 +5,7 @@ import NavbarItem from "./NavbarItem";
 
 const Navbar = ({ currentPage, onNavigate }) => {
   return (
-    <nav className="flex items-center justify-between p-4 font-sans">
+    <nav className="flex items-center justify-between p-4 font-sans bg-white">
       <div className="flex items-center">
         <NavbarLogo onNavigate={onNavigate} />
         <div className="ml-16">
