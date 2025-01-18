@@ -13,22 +13,41 @@ const TheorySection = ({ theory, tip }) => (
       <section key={index}>
         <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
         <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-          {section.content}
+          {section.content.split(/(\$.*?\$)/).map((part, i) => {
+            if (part.startsWith("$") && part.endsWith("$")) {
+              return (
+                <span key={i} className="katex-wrapper">
+                  <InlineMath math={part.slice(1, -1)} />
+                </span>
+              );
+            }
+            return part;
+          })}
         </p>
       </section>
     ))}
     {tip && <CourseTip content={tip} />}
   </div>
 );
-
 const ExamplesSection = ({ examples }) => (
   <div className="space-y-6">
     {examples.map((example, index) => (
-      <div key={index} className="border p-4 rounded-lg bg-gray-50 ">
+      <div key={index} className="border p-4 rounded-lg bg-gray-50">
         <p className="font-medium mb-2">Przykład {index + 1}:</p>
-        <p>{example.content}</p>
+        <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+          {example.content.split(/(\$.*?\$)/).map((part, i) => {
+            if (part.startsWith("$") && part.endsWith("$")) {
+              return (
+                <span key={i} className="katex-wrapper">
+                  <InlineMath math={part.slice(1, -1)} />
+                </span>
+              );
+            }
+            return part;
+          })}
+        </div>
         {example.solution && (
-          <div className="text-gray-600 mt-2 flex gap-1 items-baseline">
+          <div className="text-gray-600 mt-4 flex gap-1 items-baseline">
             <span>Rozwiązanie:</span>
             <span className="mr-1">{example.solution.text}</span>
             <span>
@@ -41,16 +60,27 @@ const ExamplesSection = ({ examples }) => (
   </div>
 );
 const ExercisesSection = ({ exercises }) => (
-  <div className="space-y-6">
+  <div className="space-y-6 ">
     {exercises.map((exercise, index) => (
-      <div key={index} className="border p-4 rounded-lg bg-gray-50 ">
+      <div key={index} className="border p-4 rounded-lg  bg-gray-50">
         <p className="font-medium mb-2">Ćwiczenie {index + 1}:</p>
-        <p>
-          <span>{exercise.text} </span>
-          <span className="katex-wrapper">
+        <div className="space-y-2">
+          <p className="text-gray-700">
+            {exercise.text.split(/(\$.*?\$)/).map((part, i) => {
+              if (part.startsWith("$") && part.endsWith("$")) {
+                return (
+                  <span key={i} className="katex-wrapper">
+                    <InlineMath math={part.slice(1, -1)} />
+                  </span>
+                );
+              }
+              return part;
+            })}
+          </p>
+          <p className="font-medium mt-2">
             <InlineMath math={exercise.math} />
-          </span>
-        </p>
+          </p>
+        </div>
       </div>
     ))}
   </div>
@@ -58,6 +88,10 @@ const ExercisesSection = ({ exercises }) => (
 const CourseContent = ({ lesson }) => {
   const [activeSection, setActiveSection] = useState("theory");
   const navigate = useNavigate();
+
+  if (!lesson) {
+    return console.log("Nie znaleziono lekcji");
+  }
 
   const contentAnimation = {
     initial: { opacity: 0, x: 20 },
@@ -85,8 +119,8 @@ const CourseContent = ({ lesson }) => {
   };
 
   return (
-    <motion.div {...contentAnimation} className="flex-1 p-8 ml-8 mt-12">
-      <div className="max-w-4xl mx-auto px-4">
+    <motion.div {...contentAnimation} className="flex-1 p-8 mt-12">
+      <div className="max-w-5xl mx-auto px-4">
         <div className="border-b pb-6 mb-8">
           <div className="flex items-center gap-4 mb-3">
             <h1 className="text-3xl font-bold text-blueTextColor">

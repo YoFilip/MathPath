@@ -9,7 +9,7 @@ const Navbar = ({ currentPage, onNavigate }) => {
       <div className="flex items-center">
         <NavbarLogo onNavigate={onNavigate} />
         <div className="ml-16">
-          <NavbarSearch />
+          <NavbarSearch onNavigate={onNavigate} />
         </div>
       </div>
       <ul className="flex gap-10">

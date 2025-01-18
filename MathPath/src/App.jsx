@@ -15,7 +15,13 @@ import {
 
 function CourseContainer() {
   const { lessonId } = useParams();
-  return <CourseContent lesson={getLessonData(lessonId)} />;
+  const lessonData = getLessonData(lessonId);
+
+  if (!lessonData) {
+    return console.log("Nie znaleziono lekcji");
+  }
+
+  return <CourseContent lesson={lessonData} />;
 }
 
 function AppContent() {

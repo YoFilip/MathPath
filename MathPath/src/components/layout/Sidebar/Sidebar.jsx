@@ -38,7 +38,7 @@ const SidebarComponent = ({ onTopicSelect }) => {
   };
 
   return (
-    <motion.div className="w-96 mt-10 ml-1" {...sidebarAnimation}>
+    <motion.div className="w-52 mt-10" {...sidebarAnimation}>
       <Sidebar theme={customTheme}>
         <Sidebar.Items>
           <Sidebar.ItemGroup>

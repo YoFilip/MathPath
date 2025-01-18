@@ -12,24 +12,26 @@ const SidebarSection = ({
 }) => {
   return (
     <Sidebar.Collapse
-      key={section.id}
       label={
-        <div className="flex items-center gap-2 mt-2">
+        <div
+          className="flex items-center gap-2 mt-2 cursor-pointer w-full"
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggle();
+          }}>
           <FaRegCircleDot
             className={
               isExpanded ? "text-activeTextColor" : "text-inactiveTextColor"
             }
             size={15}
           />
-          <span className="font-bold float-left">{section.title}</span>
+          <span className="font-bold">{section.title}</span>
         </div>
       }
       open={isExpanded}
-      onClick={onToggle}
-      className={
+      className={`${
         isExpanded ? "!text-activeTextColor" : "!text-inactiveTextColor"
-      }
-      renderChevronIcon={() => null}>
+      }`}>
       <SidebarTopics
         topics={section.topics}
         onTopicSelect={onTopicSelect}
