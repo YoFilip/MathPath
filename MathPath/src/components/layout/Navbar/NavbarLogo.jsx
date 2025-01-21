@@ -5,7 +5,7 @@ function NavbarLogo({ onNavigate }) {
     <a
       href="#home"
       onClick={() => onNavigate("home")}
-      className="text-2xl font-bold text-logoTextColor">
+      className="text-xl font-bold text-logoTextColor">
       MathPath
     </a>
   );

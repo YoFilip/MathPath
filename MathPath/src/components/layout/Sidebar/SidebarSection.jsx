@@ -14,7 +14,7 @@ const SidebarSection = ({
     <Sidebar.Collapse
       label={
         <div
-          className="flex items-center gap-2 mt-2 cursor-pointer w-full"
+          className="flex items-center gap-2 mb-2 mt-2 cursor-pointer w-full"
           onClick={(e) => {
             e.stopPropagation();
             onToggle();
@@ -25,7 +25,7 @@ const SidebarSection = ({
             }
             size={15}
           />
-          <span className="font-bold">{section.title}</span>
+          <span className="font-bold text-sm">{section.title}</span>
         </div>
       }
       open={isExpanded}

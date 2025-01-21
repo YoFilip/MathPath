@@ -2,89 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaBookOpen, FaLightbulb, FaTasks } from "react-icons/fa";
 import CourseNavigation from "./CourseNavigation";
-import CourseTip from "./CourseTip";
-import { InlineMath, BlockMath } from "react-katex";
+import TheorySection from "./sections/TheorySection";
+import ExamplesSection from "./sections/ExamplesSection";
+import ExercisesSection from "./sections/ExercisesSection";
 import "katex/dist/katex.min.css";
 import { useNavigate } from "react-router-dom";
 
-const TheorySection = ({ theory, tip }) => (
-  <div className="space-y-6">
-    {theory.map((section, index) => (
-      <section key={index}>
-        <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
-        <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-          {section.content.split(/(\$.*?\$)/).map((part, i) => {
-            if (part.startsWith("$") && part.endsWith("$")) {
-              return (
-                <span key={i} className="katex-wrapper">
-                  <InlineMath math={part.slice(1, -1)} />
-                </span>
-              );
-            }
-            return part;
-          })}
-        </p>
-      </section>
-    ))}
-    {tip && <CourseTip content={tip} />}
-  </div>
-);
-const ExamplesSection = ({ examples }) => (
-  <div className="space-y-6">
-    {examples.map((example, index) => (
-      <div key={index} className="border p-4 rounded-lg bg-gray-50">
-        <p className="font-medium mb-2">Przykład {index + 1}:</p>
-        <div className="text-gray-700 leading-relaxed whitespace-pre-line">
-          {example.content.split(/(\$.*?\$)/).map((part, i) => {
-            if (part.startsWith("$") && part.endsWith("$")) {
-              return (
-                <span key={i} className="katex-wrapper">
-                  <InlineMath math={part.slice(1, -1)} />
-                </span>
-              );
-            }
-            return part;
-          })}
-        </div>
-        {example.solution && (
-          <div className="text-gray-600 mt-4 flex gap-1 items-baseline">
-            <span>Rozwiązanie:</span>
-            <span className="mr-1">{example.solution.text}</span>
-            <span>
-              <InlineMath math={example.solution.math} />
-            </span>
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-);
-const ExercisesSection = ({ exercises }) => (
-  <div className="space-y-6 ">
-    {exercises.map((exercise, index) => (
-      <div key={index} className="border p-4 rounded-lg  bg-gray-50">
-        <p className="font-medium mb-2">Ćwiczenie {index + 1}:</p>
-        <div className="space-y-2">
-          <p className="text-gray-700">
-            {exercise.text.split(/(\$.*?\$)/).map((part, i) => {
-              if (part.startsWith("$") && part.endsWith("$")) {
-                return (
-                  <span key={i} className="katex-wrapper">
-                    <InlineMath math={part.slice(1, -1)} />
-                  </span>
-                );
-              }
-              return part;
-            })}
-          </p>
-          <p className="font-medium mt-2">
-            <InlineMath math={exercise.math} />
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-);
 const CourseContent = ({ lesson }) => {
   const [activeSection, setActiveSection] = useState("theory");
   const navigate = useNavigate();
@@ -102,7 +25,7 @@ const CourseContent = ({ lesson }) => {
   const SectionButton = ({ icon: Icon, name, title }) => (
     <button
       onClick={() => setActiveSection(name)}
-      className={`flex items-center gap-3 p-4 rounded-lg transition-all ${
+      className={`flex items-center gap-3 py-3 px-5 rounded-lg transition-all ${
         activeSection === name
           ? "bg-blueBgColor text-white"
           : "hover:bg-gray-100"
@@ -111,6 +34,7 @@ const CourseContent = ({ lesson }) => {
       <span className="font-medium">{title}</span>
     </button>
   );
+
   const hasExamples = lesson.examples && lesson.examples.length > 0;
   const hasExercises = lesson.exercises && lesson.exercises.length > 0;
 
@@ -147,7 +71,7 @@ const CourseContent = ({ lesson }) => {
           )}
         </div>
 
-        <div className="bg-white rounded-lg p-8 shadow-sm">
+        <div className="bg-white rounded-lg p-4">
           {activeSection === "theory" && (
             <TheorySection theory={lesson.theory} tip={lesson.tip} />
           )}

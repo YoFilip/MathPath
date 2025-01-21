@@ -9,7 +9,7 @@ const SidebarTopics = ({ topics, onTopicSelect, selectedTopic }) => {
         <Sidebar.Item
           key={topic.id}
           onClick={() => onTopicSelect(topic.id)}
-          className={`text-gray-600 text-sm ml-5 font-medium !justify-start cursor-pointer ${
+          className={`text-gray-600 text-xs ml-5 font-medium !justify-start cursor-pointer ${
             selectedTopic === topic.id ? "bg-white" : ""
           }`}>
           <div className="flex items-center gap-2 w-full">

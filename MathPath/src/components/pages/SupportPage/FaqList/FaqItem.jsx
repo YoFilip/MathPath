@@ -17,7 +17,7 @@ const FaqItem = ({ item, index }) => {
       transition={{ delay: index * 0.1 }}
       className="border rounded-lg hover:shadow-md transition-all duration-300">
       <button
-        className="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors duration-300"
+        className="w-full p-6 text-left flex justify-between items-center bg-white hover:transition-colors duration-300"
         onClick={() => setIsOpen(!isOpen)}>
         <div>
           <span className="text-lg font-semibold block">{item.question}</span>

@@ -5,7 +5,7 @@ function NavbarItem({ href, children, isActive, onClick }) {
       <a
         href={href}
         onClick={onClick}
-        className={`font-medium hover:no-underline ${
+        className={`font-medium text-sm hover:no-underline ${
           isActive ? "text-blueTextColor" : "text-navItemTextColor"
         }`}>
         {children}

@@ -16,6 +16,7 @@ const sidebarAnimation = {
 
 const SidebarComponent = ({ onTopicSelect }) => {
   const [expandedSections, setExpandedSections] = useState({});
+  const [activeSection, setActiveSection] = useState(null);
   const [selectedTopic, setSelectedTopic] = useState(null);
 
   const customTheme = {
@@ -27,10 +28,20 @@ const SidebarComponent = ({ onTopicSelect }) => {
   };
 
   const toggleSection = (sectionId) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [sectionId]: !prev[sectionId],
-    }));
+    setExpandedSections((prev) => {
+      const newState = {
+        ...prev,
+        [sectionId]: !prev[sectionId],
+      };
+
+      if (newState[sectionId]) {
+        setActiveSection(sectionId);
+      } else if (sectionId === activeSection) {
+        setActiveSection(null);
+      }
+
+      return newState;
+    });
   };
 
   const handleTopicSelect = (topicId) => {
@@ -38,7 +49,7 @@ const SidebarComponent = ({ onTopicSelect }) => {
   };
 
   return (
-    <motion.div className="w-52 mt-10" {...sidebarAnimation}>
+    <motion.div className="w-60 mt-10" {...sidebarAnimation}>
       <Sidebar theme={customTheme}>
         <Sidebar.Items>
           <Sidebar.ItemGroup>
@@ -47,6 +58,7 @@ const SidebarComponent = ({ onTopicSelect }) => {
                 key={section.id}
                 section={section}
                 isExpanded={expandedSections[section.id]}
+                isActive={activeSection === section.id}
                 onToggle={() => toggleSection(section.id)}
                 onTopicSelect={handleTopicSelect}
                 selectedTopic={selectedTopic}

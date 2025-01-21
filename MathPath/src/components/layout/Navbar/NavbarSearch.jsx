@@ -54,11 +54,11 @@ const NavbarSearch = ({ onNavigate }) => {
               </InputAdornment>
             ),
           }}
-          className="p-2 pl-10 rounded bg-navSearchBgColor"
+          className="rounded bg-navSearchBgColor"
           fullWidth
           sx={{
             "& .MuiOutlinedInput-root": {
-              height: "50px",
+              height: "40px",
               border: "none",
               "&, &:hover, &.Mui-focused": {
                 "& fieldset": { border: "none" },

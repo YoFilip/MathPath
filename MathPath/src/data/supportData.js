@@ -7,29 +7,8 @@ export const faqCategories = {
                 answer: "Wybierz interesujący Cię dział z menu 'Tematy' i rozpocznij naukę od podstaw."
             },
             {
-                question: "Jak śledzić swoje postępy?",
-                answer: "W każdym dziale znajdziesz pasek postępu pokazujący ukończone lekcje."
-            },
-            {
-                question: "Czy muszę przerabiać tematy w określonej kolejności?",
-                answer: "Zalecamy zachowanie kolejności, ale możesz wybrać dowolny temat."
-            }
-        ]
-    },
-    techniczne: {
-        title: "Kwestie techniczne",
-        items: [
-            {
-                question: "Czy materiały są dostępne offline?",
-                answer: "Aktualnie materiały dostępne są tylko online. Pracujemy nad trybem offline."
-            },
-            {
-                question: "Jakie przeglądarki są wspierane?",
-                answer: "Platforma działa na wszystkich nowoczesnych przeglądarkach (Chrome, Firefox, Safari, Edge)."
-            },
-            {
-                question: "Co zrobić w przypadku problemów technicznych?",
-                answer: "Spróbuj odświeżyć stronę lub wyczyścić pamięć podręczną przeglądarki."
+                question: "Jak działa nawigacja między lekcjami?",
+                answer: "W każdej lekcji znajdziesz przyciski 'Poprzednia' i 'Następna' lekcja, które pozwalają na sekwencyjne przechodzenie przez materiał. Możesz też wybrać dowolną lekcję z menu bocznego."
             }
         ]
     },
@@ -37,12 +16,12 @@ export const faqCategories = {
         title: "Materiały edukacyjne",
         items: [
             {
-                question: "Jak często dodawane są nowe materiały?",
-                answer: "Regularnie aktualizujemy i dodajemy nowe materiały, zazwyczaj co tydzień."
+                question: "Jak korzystać z interaktywnych wzorów matematycznych?",
+                answer: "Wzory matematyczne są wyświetlane w sposób interaktywny dzięki KaTeX. Możesz je powiększyć i skopiować. Każda lekcja zawiera teorię, przykłady i ćwiczenia z wykorzystaniem wzorów."
             },
             {
-                question: "Czy mogę pobrać materiały do nauki?",
-                answer: "Obecnie nie ma możliwości pobierania materiałów, ale planujemy dodać tę funkcję."
+                question: "Jak zorganizowana jest struktura lekcji?",
+                answer: "Każda lekcja składa się z trzech głównych sekcji: teorii z wyjaśnieniami, przykładów z rozwiązaniami oraz interaktywnych ćwiczeń do samodzielnego rozwiązania."
             }
         ]
     },
@@ -50,8 +29,8 @@ export const faqCategories = {
         title: "Wsparcie i pomoc",
         items: [
             {
-                question: "Czy dostępne jest wsparcie nauczyciela?",
-                answer: "Planujemy wprowadzić wsparcie nauczycieli w przyszłych aktualizacjach."
+                question: "Jak znaleźć konkretną lekcję lub temat?",
+                answer: "Możesz użyć wyszukiwarki w górnym pasku nawigacyjnym lub przejrzeć tematy w menu bocznym, gdzie materiały są pogrupowane w działy tematyczne."
             }
         ]
     }

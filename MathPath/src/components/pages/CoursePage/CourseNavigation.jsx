@@ -6,7 +6,7 @@ const CourseNavigation = ({ prevLesson, nextLesson, onNavigate }) => {
       {prevLesson ? (
         <button
           onClick={() => onNavigate(prevLesson.id)}
-          className="text-gray-600 hover:text-blueBgColor flex items-center gap-2">
+          className="text-gray-600 hover:text-blueBgColor text-sm flex items-center gap-2">
           <FaArrowLeft size={12} />
           {prevLesson.title}
         </button>
@@ -17,7 +17,7 @@ const CourseNavigation = ({ prevLesson, nextLesson, onNavigate }) => {
       {nextLesson ? (
         <button
           onClick={() => onNavigate(nextLesson.id)}
-          className="bg-blueBgColor text-white px-6 py-2 rounded-lg hover:opacity-90 flex items-center gap-2">
+          className="bg-blueBgColor text-white text-sm px-6 py-2 rounded-lg hover:opacity-90 flex items-center gap-2">
           {nextLesson.title}
           <FaArrowRight size={12} />
         </button>
