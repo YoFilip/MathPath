@@ -6,6 +6,7 @@ import SidebarTopics from "./SidebarTopics";
 const SidebarSection = ({
   section,
   isExpanded,
+  isActive,
   onToggle,
   onTopicSelect,
   selectedTopic,
@@ -21,7 +22,7 @@ const SidebarSection = ({
           }}>
           <FaRegCircleDot
             className={
-              isExpanded ? "text-activeTextColor" : "text-inactiveTextColor"
+              isActive ? "text-activeTextColor" : "text-inactiveTextColor"
             }
             size={15}
           />
@@ -30,7 +31,7 @@ const SidebarSection = ({
       }
       open={isExpanded}
       className={`${
-        isExpanded ? "!text-activeTextColor" : "!text-inactiveTextColor"
+        isActive ? "!text-activeTextColor" : "!text-inactiveTextColor"
       }`}>
       <SidebarTopics
         topics={section.topics}
