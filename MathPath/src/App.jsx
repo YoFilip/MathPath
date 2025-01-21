@@ -5,7 +5,6 @@ import HomePage from "./components/pages/HomePage/HomePage";
 import CourseContent from "./components/pages/CoursePage/CourseContent";
 import SupportPage from "./components/pages/SupportPage/SupportPage";
 import { getLessonData } from "./data/lessonData";
-import DeviceWarning from "./components/warning/DeviceWarning";
 import {
   BrowserRouter,
   Routes,
@@ -44,7 +43,7 @@ function AppContent() {
   };
 
   return (
-    <div className="hidden lg:block mr-52 ml-52">
+    <div className="mr-52 ml-52">
       <Navbar currentPage={currentPage} onNavigate={handlePageChange} />
       {currentPage === "topics" && (
         <div className="flex">
@@ -71,7 +70,6 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
-      <DeviceWarning />
       <AppContent />
     </BrowserRouter>
   );
