@@ -63,6 +63,17 @@ const NavbarSearch = ({ onNavigate }) => {
               "&, &:hover, &.Mui-focused": {
                 "& fieldset": { border: "none" },
               },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                border: "none",
+              },
+              "&.Mui-focused": {
+                boxShadow: "none",
+              },
+            },
+            "& .MuiInputBase-input": {
+              "&:focus": {
+                boxShadow: "none",
+              },
             },
           }}
         />
