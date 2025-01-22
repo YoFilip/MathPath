@@ -26,6 +26,12 @@ const Navbar = ({ currentPage, onNavigate }) => {
           Tematy
         </NavbarItem>
         <NavbarItem
+          href="#quiz"
+          isActive={currentPage === "quiz"}
+          onClick={() => onNavigate("quiz")}>
+          Quiz
+        </NavbarItem>
+        <NavbarItem
           href="#help"
           isActive={currentPage === "help"}
           onClick={() => onNavigate("help")}>

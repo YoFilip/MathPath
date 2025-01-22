@@ -49,8 +49,7 @@ const SidebarSection = ({
             },
           },
         },
-      }}
-      labelClassName="cursor-pointer">
+      }}>
       <SidebarTopics
         topics={section.topics}
         onTopicSelect={onTopicSelect}
