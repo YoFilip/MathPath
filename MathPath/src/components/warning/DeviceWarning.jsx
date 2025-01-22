@@ -1,4 +1,3 @@
-// src/components/common/DeviceWarning.jsx
 import { motion } from "framer-motion";
 
 const DeviceWarning = () => {
