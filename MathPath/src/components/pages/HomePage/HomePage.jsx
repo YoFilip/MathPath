@@ -30,7 +30,7 @@ const HomePage = ({ onNavigate }) => {
         initial="hidden"
         animate="visible"
         transition={transition}
-        className="text-7xl font-bold text-blueTextColor mt-32">
+        className="text-6xl font-bold text-blueTextColor mt-32">
         MathPath
       </motion.h1>
 
@@ -40,7 +40,7 @@ const HomePage = ({ onNavigate }) => {
         animate="visible"
         transition={{ ...transition, delay: 0.2 }}
         className="flex flex-col gap-4 text-center">
-        <p className="text-lg text-gray-600 max-w-3xl">
+        <p className="text-base text-gray-600 max-w-3xl">
           Platforma edukacyjna stworzona, aby pomóc Ci zrozumieć matematykę
           poprzez interaktywne materiały i praktyczne przykłady
         </p>
@@ -53,7 +53,7 @@ const HomePage = ({ onNavigate }) => {
         whileHover="hover"
         whileTap="tap"
         transition={{ ...transition, delay: 0.4 }}
-        className="bg-blueBgColor hover:bg-blueBgColor text-white text-lg font-semibold 
+        className="bg-blueBgColor hover:bg-blueBgColor text-white text-base font-semibold 
                    py-4 px-8 rounded-lg transform transition-all duration-200 
                    shadow-lg hover:shadow-xl mt-4"
         onClick={() => onNavigate("topics")}>
@@ -69,7 +69,7 @@ const HomePage = ({ onNavigate }) => {
             animate="visible"
             transition={{ ...transition, delay: 0.6 }}
             className="p-8 bg-blueBgColor bg-opacity-10 rounded-lg">
-            <h3 className="text-xl font-bold text-gray-600 mb-2">
+            <h3 className="text-base font-bold text-gray-600 mb-2">
               {item.title}
             </h3>
             <p className="text-gray-600">{item.desc}</p>

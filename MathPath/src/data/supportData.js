@@ -17,7 +17,7 @@ export const faqCategories = {
         items: [
             {
                 question: "Jak korzystać z interaktywnych wzorów matematycznych?",
-                answer: "Wzory matematyczne są wyświetlane w sposób interaktywny dzięki KaTeX. Możesz je powiększyć i skopiować. Każda lekcja zawiera teorię, przykłady i ćwiczenia z wykorzystaniem wzorów."
+                answer: "Wzory matematyczne są wyświetlane w sposób interaktywny. Każda lekcja zawiera teorię, przykłady i ćwiczenia z wykorzystaniem wzorów."
             },
             {
                 question: "Jak zorganizowana jest struktura lekcji?",

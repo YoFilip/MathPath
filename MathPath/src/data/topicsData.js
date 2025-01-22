@@ -14,7 +14,7 @@ export const sections = [
             { id: 'arithmetic', title: 'Ciąg arytmetyczny' },
             { id: 'geometric', title: 'Ciąg geometryczny' },
             { id: 'limits', title: 'Granica ciągu' },
-            { id: 'seq-practice', title: 'Zadania z ciągów' }
+            // { id: 'seq-practice', title: 'Zadania z ciągów' }
         ]
     },
 

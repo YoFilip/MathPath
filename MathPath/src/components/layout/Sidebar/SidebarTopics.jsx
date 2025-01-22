@@ -9,9 +9,7 @@ const SidebarTopics = ({ topics, onTopicSelect, selectedTopic }) => {
         <Sidebar.Item
           key={topic.id}
           onClick={() => onTopicSelect(topic.id)}
-          className={`text-gray-600 text-xs ml-5 font-medium !justify-start cursor-pointer ${
-            selectedTopic === topic.id ? "bg-white" : ""
-          }`}>
+          className="px-5 py-3 text-xs font-medium !justify-start cursor-pointer">
           <div className="flex items-center gap-2 w-full">
             <MdOutlinePlayLesson
               className={
@@ -21,12 +19,18 @@ const SidebarTopics = ({ topics, onTopicSelect, selectedTopic }) => {
               }
               size={15}
             />
-            <span className="text-left">{topic.title}</span>
+            <span
+              className={
+                selectedTopic === topic.id
+                  ? "text-activeTextColor"
+                  : "text-inactiveTextColor"
+              }>
+              {topic.title}
+            </span>
           </div>
         </Sidebar.Item>
       ))}
     </>
   );
 };
-
 export default SidebarTopics;
