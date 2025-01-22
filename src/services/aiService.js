@@ -1,5 +1,3 @@
-// src/services/aiService.js
-
 import * as tf from '@tensorflow/tfjs';
 
 export class QuizAI {
@@ -23,7 +21,6 @@ export class QuizAI {
     }
 
     calculateDifficulty(performance) {
-        // Dostosuj trudność na podstawie wydajności użytkownika
         if (performance < 0.3) return 1;
         if (performance < 0.6) return 2;
         return 3;
