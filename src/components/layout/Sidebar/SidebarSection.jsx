@@ -35,18 +35,20 @@ const SidebarSection = ({
         </div>
       }
       open={isExpanded}
-      className="bg-transparent pt-2 mt-1 pb-2 pl-5 pr-5"
+      className={`bg-transparent pt-2 mt-1 pb-2 pl-5 pr-5 ${
+        isActive ? "text-activeTextColor" : "text-inactiveTextColor"
+      }`}
       theme={{
         root: {
           base: "group",
-          chevron: {
-            base: `${
-              isActive ? "text-activeTextColor" : "text-inactiveTextColor"
-            } h-6 w-6 shrink-0 transition-transform`,
-            open: {
-              off: "",
-              on: "rotate-180",
-            },
+        },
+        chevron: {
+          base: `${
+            isActive ? "text-activeTextColor" : "text-inactiveTextColor"
+          } h-6 w-6 shrink-0 transition-transform`,
+          open: {
+            off: "",
+            on: "rotate-180",
           },
         },
       }}>

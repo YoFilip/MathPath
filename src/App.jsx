@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Sidebar from "./components/layout/Sidebar/Sidebar";
 import HomePage from "./components/pages/HomePage/HomePage";
@@ -46,6 +46,12 @@ function AppContent() {
     setCurrentPage("topics");
     navigate(`topics/lesson/${topicId}`);
   };
+
+  useEffect(() => {
+    if (currentPage === "topics" && !selectedTopic) {
+      handleTopicSelect("introduction");
+    }
+  }, [currentPage, selectedTopic]);
 
   return (
     <div className="hidden lg:block mr-52 ml-52">

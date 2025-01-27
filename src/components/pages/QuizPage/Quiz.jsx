@@ -83,38 +83,16 @@ const Quiz = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="max-w-2xl mx-auto mt-12 p-8">
-      <h2 className="text-3xl text-center font-bold text-blueTextColor mb-8">
-        Quiz Matematyczny
-      </h2>
-
-      <div className="bg-white rounded-lg shadow-lg p-6  mb-6">
-        <div className="mb-6">
-          <p className="text-lg text-gray-600 mb-4">
-            {currentQuestion?.question}
-          </p>
-          <input
-            type="text"
-            value={userAnswer}
-            onChange={(e) => setUserAnswer(e.target.value)}
-            className="w-full p-3  focus:outline-none focus:ring-2 focus:ring-blueBgColor"
-            placeholder="Wpisz odpowiedź..."
-          />
+      className="max-w-5xl mx-auto mt-12 p-8">
+      <div className="bg-white rounded-lg shadow-lg p-6  mb-6 border border-blueBgColor">
+        <div className="bg-blueBgColor px-10 py-2 max-w-max rounded-xl mt-[-45px] mx-auto mb-6">
+          <div className=" text-white text-center">
+            Wynik: {score}/{totalQuestions}
+          </div>
         </div>
-
-        <div className="flex gap-4">
-          <button
-            onClick={checkAnswer}
-            className="bg-blueBgColor text-white px-6 py-2 rounded-lg hover:opacity-90">
-            Sprawdź
-          </button>
-          <button
-            onClick={nextQuestion}
-            className="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300">
-            Następne pytanie
-          </button>
-        </div>
-
+        <p className="text-lg text-gray-600 mb-4">
+          {currentQuestion?.question}
+        </p>
         {feedback && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -127,10 +105,26 @@ const Quiz = () => {
             {feedback.message}
           </motion.div>
         )}
-
-        <div className="mt-6 text-gray-600">
-          Wynik: {score}/{totalQuestions}
+        <div className="mb-6">
+          <input
+            type="text"
+            value={userAnswer}
+            onChange={(e) => setUserAnswer(e.target.value)}
+            className="w-full p-3  focus:outline-none focus:ring-2 focus:ring-blueBgColor"
+            placeholder="Wpisz odpowiedź..."
+          />
         </div>
+
+        <button
+          onClick={checkAnswer}
+          className="bg-blueBgColor text-white px-6 py-2 mr-2 rounded-lg hover:opacity-90">
+          Sprawdź
+        </button>
+        <button
+          onClick={nextQuestion}
+          className="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300">
+          Następne pytanie
+        </button>
       </div>
     </motion.div>
   );

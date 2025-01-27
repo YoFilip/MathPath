@@ -18,9 +18,9 @@ const transition = {
 
 const HomePage = ({ onNavigate }) => {
   const cards = [
-    { title: "X Działów", desc: "Kompleksowy program nauczania" },
-    { title: "X Tematów", desc: "Szczegółowo opracowane zagadnienia" },
-    { title: "X+ Zadań", desc: "Praktyczne ćwiczenia z rozwiązaniami" },
+    { title: "1 Dział", desc: "Kompleksowy program nauczania" },
+    { title: "5 Tematów", desc: "Szczegółowo opracowane zagadnienia" },
+    { title: "50+ Zadań", desc: "Praktyczne ćwiczenia z rozwiązaniami" },
   ];
 
   return (
