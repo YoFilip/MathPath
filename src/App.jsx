@@ -48,10 +48,10 @@ function AppContent() {
   };
 
   useEffect(() => {
-    if (currentPage === "topics" && !selectedTopic) {
+    if (window.location.pathname.includes("/topics") && !selectedTopic) {
       handleTopicSelect("introduction");
     }
-  }, [currentPage, selectedTopic]);
+  }, []);
 
   return (
     <div className="hidden lg:block mr-52 ml-52">
