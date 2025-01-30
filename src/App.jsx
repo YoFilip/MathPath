@@ -87,12 +87,13 @@ function AppContent() {
     </div>
   );
 }
+
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename="/MathPath">
       <DeviceWarning />
       <AppContent />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

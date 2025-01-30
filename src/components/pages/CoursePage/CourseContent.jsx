@@ -39,7 +39,7 @@ const CourseContent = ({ lesson }) => {
   const hasExercises = lesson.exercises && lesson.exercises.length > 0;
 
   const handleNavigate = (lessonId) => {
-    navigate(`/lesson/${lessonId}`);
+    navigate(`/topics/lesson/${lessonId}`);
   };
 
   return (

@@ -14,27 +14,39 @@ const Navbar = ({ currentPage, onNavigate }) => {
       </div>
       <ul className="flex gap-10">
         <NavbarItem
-          href="#home"
+          href="/MathPath"
           isActive={currentPage === "home"}
-          onClick={() => onNavigate("home")}>
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate("/");
+          }}>
           Strona główna
         </NavbarItem>
         <NavbarItem
-          href="#topics"
+          href="/MathPath/topics"
           isActive={currentPage === "topics"}
-          onClick={() => onNavigate("topics")}>
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate("/topics");
+          }}>
           Tematy
         </NavbarItem>
         <NavbarItem
-          href="#quiz"
+          href="/MathPath/quiz"
           isActive={currentPage === "quiz"}
-          onClick={() => onNavigate("quiz")}>
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate("/quiz");
+          }}>
           Quiz
         </NavbarItem>
         <NavbarItem
-          href="#help"
+          href="/MathPath/help"
           isActive={currentPage === "help"}
-          onClick={() => onNavigate("help")}>
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate("/help");
+          }}>
           Pomoc
         </NavbarItem>
       </ul>
