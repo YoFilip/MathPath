@@ -18,19 +18,18 @@ const NavbarSearch = ({ onNavigate }) => {
     }))
     .flatMap((section) => section.topics);
 
-  const handleTopicSelect = (_, topic) => {
-    if (topic) {
-      const selectedTopic = allTopics.find(
-        (t) =>
-          t.title === topic || (typeof topic === "object" && t.id === topic.id)
-      );
-      if (selectedTopic) {
-        onNavigate("topics");
-        navigate(`/lesson/${selectedTopic.id}`);
+    const handleTopicSelect = (_, topic) => {
+      if (topic) {
+        const selectedTopic = allTopics.find(
+          (t) =>
+            t.title === topic || (typeof topic === "object" && t.id === topic.id)
+        );
+        if (selectedTopic) {
+          onNavigate("topics");
+          navigate(`/topics/lesson/${selectedTopic.id}`);
+        }
       }
-    }
-  };
-
+    };
   return (
     <Autocomplete
       freeSolo
